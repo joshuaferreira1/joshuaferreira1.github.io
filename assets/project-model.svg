@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#DCE8E1"/>
+  <g fill="none" stroke="#153D32" stroke-width="2">
+    <circle cx="600" cy="400" r="250"/><circle cx="600" cy="400" r="180"/><circle cx="600" cy="400" r="110"/>
+  </g>
+  <g fill="#302653"><circle cx="600" cy="150" r="12"/><circle cx="780" cy="295" r="12"/><circle cx="650" cy="510" r="12"/><circle cx="405" cy="465" r="12"/></g>
+  <path d="M600 150L780 295L650 510L405 465Z" fill="none" stroke="#302653" stroke-width="3"/>
+  <text x="60" y="72" fill="#252729" font-family="Arial" font-size="20" letter-spacing="6">PROJECT IMAGE PLACEHOLDER / MODEL</text>
+</svg>

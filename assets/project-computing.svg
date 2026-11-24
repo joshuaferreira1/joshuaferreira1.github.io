@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#F3F5F4"/>
+  <g stroke="#153D32" stroke-width="2">
+    <path d="M100 400H1100M600 100V700M200 200H1000V600H200Z"/>
+  </g>
+  <g fill="#302653">
+    <rect x="270" y="270" width="230" height="230"/>
+    <rect x="700" y="270" width="230" height="230"/>
+  </g>
+  <g fill="#DCE8E1">
+    <circle cx="385" cy="385" r="38"/>
+    <circle cx="815" cy="385" r="38"/>
+  </g>
+  <text x="60" y="72" fill="#252729" font-family="Arial" font-size="20" letter-spacing="6">PROJECT IMAGE PLACEHOLDER / COMPUTING</text>
+</svg>
