@@ -1,11 +1,14 @@
-Fonts
+Style
+    Main - Brutalist
+    Substyle - Professional
+
+Fonts (all fonts used should be taken directly from fonts folder)
     Satoshi - Titles, Emphasis
     Aileron - Text
 
-Colour Palette
+Colour Palette (there may be slight variance in designs placed in the assets folder)
     153D32 - Forest Green
     302653 - Deep Violet
-    FFFFFF - Pure White
     F3F5F4 - Cool Light Grey
     252729 - Charcoal
     DCE8E1 - Pale Green

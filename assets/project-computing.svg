@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <style>
+    @font-face {
+      font-family: "Aileron";
+      src: url("fonts/extracted/aileron_0102/Aileron-Regular.otf") format("opentype");
+    }
+  </style>
   <rect width="1200" height="800" fill="#F3F5F4"/>
   <g stroke="#153D32" stroke-width="2">
     <path d="M100 400H1100M600 100V700M200 200H1000V600H200Z"/>
@@ -11,5 +17,5 @@
     <circle cx="385" cy="385" r="38"/>
     <circle cx="815" cy="385" r="38"/>
   </g>
-  <text x="60" y="72" fill="#252729" font-family="Arial" font-size="20" letter-spacing="6">PROJECT IMAGE PLACEHOLDER / COMPUTING</text>
+  <text x="60" y="72" fill="#252729" font-family="Aileron" font-size="20" letter-spacing="6">PROJECT IMAGE PLACEHOLDER / COMPUTING</text>
 </svg>

@@ -15,6 +15,7 @@
     certifications: 17,
     contact: 18
   });
+  const animationIconNumbers = Object.freeze({sawblade: 13});
   const negativeSpaceIconNumbers = new Set([12, 10, 11, 15, 17]);
 
   async function loadSectionIcons() {
@@ -24,7 +25,8 @@
       ["#171717", "--section-icon-secondary"]
     ]);
 
-    await Promise.all([...new Set(Object.values(sectionIconNumbers))].map(async number => {
+    const iconNumbers = {...sectionIconNumbers, ...animationIconNumbers};
+    await Promise.all([...new Set(Object.values(iconNumbers))].map(async number => {
       const response = await fetch(`assets/icons_made_by_josh/dark_grey_icon_${number}.svg`);
       if (!response.ok) {
         throw new Error(`Could not load section icon ${number}: ${response.status}`);
@@ -61,11 +63,20 @@
         });
       });
 
+      if (number === animationIconNumbers.sawblade) {
+        const greenUnderlay = svg.querySelector('path[fill="#171717"]');
+        if (!greenUnderlay) {
+          throw new Error("Sawblade icon is missing its dark green underlay.");
+        }
+        greenUnderlay.style.setProperty("stroke", "var(--section-icon-secondary)");
+        greenUnderlay.style.setProperty("stroke-width", "2");
+      }
+
       iconSources.set(number, svg);
     }));
 
     function createSectionIcon(section) {
-      const iconNumber = sectionIconNumbers[section];
+      const iconNumber = iconNumbers[section];
       if (!iconNumber || !iconSources.has(iconNumber)) {
         throw new Error(`No section icon is available for "${section}".`);
       }
@@ -99,14 +110,18 @@
       const heading = section.querySelector(".hero__title, .section-heading h2, .contact__inner h2");
       if (!heading) return;
       const icon = createSectionIcon(section.dataset.section);
-      const homeIconTarget = section.dataset.section === "home" && heading.querySelector(".title-line--indented");
-      (homeIconTarget || heading).prepend(icon);
+      heading.prepend(icon);
     });
+
+    document.querySelector(".hero__sawblade").append(createSectionIcon("sawblade"));
   }
 
-  loadSectionIcons().catch(error => {
-    console.error("Section icons could not be loaded.", error);
-  });
+  const sectionIconsLoaded = loadSectionIcons()
+    .then(() => true)
+    .catch(error => {
+      console.error("Section icons could not be loaded.", error);
+      return false;
+    });
 
   function updateHeroTitleOpacity() {
     const progress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
@@ -117,8 +132,6 @@
   window.addEventListener("scroll", updateHeroTitleOpacity, {passive: true});
   window.addEventListener("resize", updateHeroTitleOpacity);
   updateHeroTitleOpacity();
-
-  document.getElementById("year").textContent = new Date().getFullYear();
 
   const grid = document.getElementById("project-grid");
   const projects = window.PORTFOLIO_DATA?.projects || [];
@@ -178,27 +191,6 @@
     });
   });
 
-  const typingEl = document.getElementById("typing-text");
-  const typingWords = ["solving problems", "building systems", "testing ideas", "asking better questions"];
-  if (!reduceMotion) {
-    let wordIndex = 0, charIndex = 0, deleting = false;
-    function type() {
-      const word = typingWords[wordIndex];
-      charIndex += deleting ? -1 : 1;
-      typingEl.textContent = word.slice(0, charIndex);
-      if (!deleting && charIndex === word.length) {
-        deleting = true; setTimeout(type, 1600); return;
-      }
-      if (deleting && charIndex === 0) {
-        deleting = false; wordIndex = (wordIndex + 1) % typingWords.length;
-      }
-      setTimeout(type, deleting ? 35 : 75);
-    }
-    type();
-  } else {
-    typingEl.textContent = typingWords[0];
-  }
-
   const sectionObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -217,17 +209,42 @@
   }, {threshold: 0.12});
   document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
 
-  const orbit = document.querySelector(".cursor-orbit");
-  if (window.matchMedia("(pointer: fine)").matches && !reduceMotion) {
-    window.addEventListener("pointermove", event => {
-      orbit.style.transform = `translate(${event.clientX - 16}px, ${event.clientY - 16}px)`;
-    }, {passive: true});
-  }
-
   window.addEventListener("load", () => {
     if (reduceMotion || !window.gsap || !window.ScrollTrigger) return;
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".hero__orb", {y: 140, ease: "none", scrollTrigger: {trigger: ".hero", start: "top top", end: "bottom top", scrub: 1}});
+    sectionIconsLoaded.then(iconsLoaded => {
+      if (!iconsLoaded) return;
+      gsap.registerPlugin(ScrollTrigger);
+      const sawblade = document.querySelector(".hero__sawblade");
+      if (!sawblade) throw new Error("Sawblade element could not be found.");
+      const sawbladeSvg = sawblade.querySelector("svg");
+      if (!sawbladeSvg) throw new Error("Sawblade SVG could not be found.");
+      const viewBoxHeight = sawbladeSvg.viewBox.baseVal.height;
+      const contentBounds = sawbladeSvg.getBBox();
+
+      if (!viewBoxHeight || !contentBounds.height) {
+        throw new Error("Sawblade SVG has no measurable geometry.");
+      }
+
+      gsap.to(sawblade, {
+        y: () => {
+          const scale = sawblade.offsetHeight / viewBoxHeight;
+          const visualBottom = (contentBounds.y + contentBounds.height) * scale;
+          return Math.max(0, hero.offsetHeight - sawblade.offsetTop - visualBottom - 24);
+        },
+        rotation: 360,
+        transformOrigin: "50% 50%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: 0,
+          end: () => hero.offsetHeight,
+          scrub: true,
+          invalidateOnRefresh: true
+        }
+      });
+    }).catch(error => {
+      console.error("Hero sawblade animation could not be initialized.", error);
+    });
   });
 
   window.addEventListener("pageshow", () => {

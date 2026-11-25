@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#F3F5F4">
   <meta name="description" content="Personal academic portfolio - mathematics, science, engineering and independent projects.">
   <title>Joshua Ferreira - Portfolio</title>
   <link rel="preload" href="assets/fonts/extracted/aileron_0102/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
@@ -14,18 +14,17 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="cursor-orbit" aria-hidden="true"></div>
 
   <aside class="rail" aria-label="Primary navigation">
     <a class="rail__mark" href="#home" aria-label="Back to introduction">JSF</a>
     <nav class="rail__nav">
-      <a href="#home" class="rail__link is-active" data-section="home"><span>01</span><b>Home</b></a>
-      <a href="#about" class="rail__link" data-section="about"><span>02</span><b>About</b></a>
-      <a href="#interests" class="rail__link" data-section="interests"><span>03</span><b>Academics</b></a>
-      <a href="#projects" class="rail__link" data-section="projects"><span>04</span><b>Projects</b></a>
-      <a href="#experience" class="rail__link" data-section="experience"><span>05</span><b>Experience</b></a>
-      <a href="#certifications" class="rail__link" data-section="certifications"><span>06</span><b>Certifications</b></a>
-      <a href="#contact" class="rail__link" data-section="contact"><span>07</span><b>Contact</b></a>
+      <a href="#home" class="rail__link is-active" data-section="home"><b>Home</b></a>
+      <a href="#about" class="rail__link" data-section="about"><b>About</b></a>
+      <a href="#interests" class="rail__link" data-section="interests"><b>Academics</b></a>
+      <a href="#projects" class="rail__link" data-section="projects"><b>Projects</b></a>
+      <a href="#experience" class="rail__link" data-section="experience"><b>Experience</b></a>
+      <a href="#certifications" class="rail__link" data-section="certifications"><b>Certifications</b></a>
+      <a href="#contact" class="rail__link" data-section="contact"><b>Contact</b></a>
     </nav>
   </aside>
 
@@ -34,41 +33,33 @@
   </button>
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <nav aria-label="Mobile navigation">
-      <a href="#home"><span class="mobile-menu__number">01</span><span class="mobile-menu__label">Home</span></a>
-      <a href="#about"><span class="mobile-menu__number">02</span><span class="mobile-menu__label">About</span></a>
-      <a href="#interests"><span class="mobile-menu__number">03</span><span class="mobile-menu__label">Academics</span></a>
-      <a href="#projects"><span class="mobile-menu__number">04</span><span class="mobile-menu__label">Projects</span></a>
-      <a href="#experience"><span class="mobile-menu__number">05</span><span class="mobile-menu__label">Experience</span></a>
-      <a href="#certifications"><span class="mobile-menu__number">06</span><span class="mobile-menu__label">Certifications</span></a>
-      <a href="#contact"><span class="mobile-menu__number">07</span><span class="mobile-menu__label">Contact</span></a>
+      <a href="#home"><span class="mobile-menu__label">Home</span></a>
+      <a href="#about"><span class="mobile-menu__label">About</span></a>
+      <a href="#interests"><span class="mobile-menu__label">Academics</span></a>
+      <a href="#projects"><span class="mobile-menu__label">Projects</span></a>
+      <a href="#experience"><span class="mobile-menu__label">Experience</span></a>
+      <a href="#certifications"><span class="mobile-menu__label">Certifications</span></a>
+      <a href="#contact"><span class="mobile-menu__label">Contact</span></a>
     </nav>
   </div>
 
   <main id="main">
     <section class="hero section" id="home" data-section="home">
-      <div class="hero__meta reveal"><span>Personal portfolio</span><span>Est. 2026</span></div>
       <div class="hero__composition">
-        <p class="eyebrow reveal">Mathematics / Physics / Computer Science</p>
         <h1 class="hero__title" aria-label="Joshua Ferreira">
           <span class="title-line reveal">Joshua</span>
           <span class="title-line title-line--indented reveal">Ferreira</span>
         </h1>
         <div class="hero__side reveal">
-          <span class="hero__rule"></span>
           <p>[Insert a short introduction about yourself here]</p>
         </div>
-        <div class="hero__terminal reveal" aria-label="Animated introduction">
-          <span class="terminal__prompt">~/interests</span>
-          <p><span id="typing-text"></span><span class="typing-caret" aria-hidden="true"></span></p>
-        </div>
       </div>
-      <div class="hero__orb" aria-hidden="true"><span></span></div>
-      <a class="scroll-cue" href="#about"><span>Explore</span><span class="scroll-cue__line" aria-hidden="true"></span></a>
+      <div class="hero__sawblade" aria-hidden="true"></div>
+      <a class="scroll-cue" href="#about"><span>Explore</span></a>
     </section>
 
     <section class="about section" id="about" data-section="about">
       <header class="section-heading reveal">
-        <p class="eyebrow">02 / About</p>
         <h2>About</h2>
       </header>
       <div class="about__grid">
@@ -89,7 +80,7 @@
 
     <section class="interests section" id="interests" data-section="interests">
       <header class="section-heading section-heading--row reveal">
-        <div><p class="eyebrow">03 / Academics</p><h2>Academics</h2></div>
+        <div><h2>Academics</h2></div>
         <p class="section-heading__aside">[Summarise the academic fields you currently want to study or investigate]</p>
       </header>
       <div class="interest-list">
@@ -103,7 +94,7 @@
 
     <section class="projects section" id="projects" data-section="projects">
       <header class="section-heading section-heading--row reveal">
-        <div><p class="eyebrow">04 / Projects</p><h2>Projects</h2></div>
+        <div><h2>Projects</h2></div>
         <p class="section-heading__aside"><span id="project-count">0</span> selected projects</p>
       </header>
       <div class="project-grid" id="project-grid" aria-live="polite">
@@ -144,7 +135,7 @@
     </section>
 
     <section class="experience section" id="experience" data-section="experience">
-      <header class="section-heading reveal"><p class="eyebrow">05 / Experience</p><h2>Experience</h2></header>
+      <header class="section-heading reveal"><h2>Experience</h2></header>
       <div class="timeline">
         <article class="timeline__item reveal"><time>[Year]</time><div><p class="timeline__type">Experience</p><h3>[Insert a verified role or activity]</h3><p>[Describe your responsibility and what you learned]</p></div></article>
         <article class="timeline__item reveal"><time>[Year]</time><div><p class="timeline__type">Competition</p><h3>[Insert a genuine competition entry]</h3><p>[Name the competition and provide its exact result or your contribution]</p></div></article>
@@ -153,7 +144,7 @@
     </section>
 
     <section class="certifications section" id="certifications" data-section="certifications">
-      <header class="section-heading section-heading--row reveal"><div><p class="eyebrow">06 / Credentials</p><h2>Certifications</h2></div></header>
+      <header class="section-heading section-heading--row reveal"><div><h2>Certifications</h2></div></header>
       <div class="credential-list">
         <article class="credential reveal"><div><span>Qualification</span><h3>[Insert certification title]</h3></div><p>[Insert issuing organisation]</p><time>[Year]</time><a href="#" aria-label="[Insert credential link]">Link</a></article>
         <article class="credential reveal"><div><span>Award</span><h3>[Insert award title]</h3></div><p>[Insert issuing organisation]</p><time>[Year]</time><a href="#" aria-label="[Insert award link]">Link</a></article>
@@ -162,14 +153,13 @@
 
     <section class="contact section" id="contact" data-section="contact">
       <div class="contact__inner">
-        <p class="eyebrow reveal">07 / Contact</p>
         <h2 class="reveal">Contact</h2>
         <div class="contact__bottom reveal">
           <p>[Write a short, specific invitation explaining what you welcome people to contact you about]</p>
           <div class="contact__links"><a href="mailto:yourname@example.com">Email</a><a href="#" aria-label="[Insert GitHub profile URL]">GitHub</a><a href="#" aria-label="[Insert LinkedIn profile URL]">LinkedIn</a></div>
         </div>
       </div>
-      <footer><span><span id="year"></span> Joshua Ferreira</span><a href="#home">Back to top</a></footer>
+      <footer><a href="#home">Back to top</a></footer>
     </section>
   </main>
 
