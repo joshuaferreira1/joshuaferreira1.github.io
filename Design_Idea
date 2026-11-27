@@ -7,11 +7,11 @@ Fonts (all fonts used should be taken directly from fonts folder)
     Aileron - Text
 
 Colour Palette (there may be slight variance in designs placed in the assets folder)
-    153D32 - Forest Green
-    302653 - Deep Violet
-    F3F5F4 - Cool Light Grey
-    252729 - Charcoal
-    DCE8E1 - Pale Green
+    #153D32 (21, 61, 50) - Forest Green
+    #302653 (48, 38, 83) - Deep Violet
+    #F3F5F4 (243, 245, 244) - Cool Light Grey
+    #252729 (37, 39, 41) - Charcoal
+    #DCE8E1 (220, 232, 225) - Pale Green
 
 Icons for sections
     Home - Icon 12
